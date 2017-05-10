@@ -2,8 +2,9 @@ package gorocksdb
 
 // #include <stdlib.h>
 // #include "rocksdb/c.h"
+import "C"
+
 import (
-	"C"
 	"errors"
 	"unsafe"
 )
@@ -15,8 +16,8 @@ type SSTFileWriter struct {
 }
 
 // NewSSTFileWriter creates an SSTFileWriter object.
-func NewSSTFileWriter(env *Env, options *Options) *SSTFileWriter {
-	c := C.rocksdb_sstfilewriter_create(env.c, options.c)
+func NewSSTFileWriter(opts *EnvOptions, dbOpts *Options) *SSTFileWriter {
+	c := C.rocksdb_sstfilewriter_create(opts.c, dbOpts.c)
 	return &SSTFileWriter{c: c}
 }
 

@@ -12,7 +12,7 @@ func NewDefaultIngestExternalFileOptions() *IngestExternalFileOptions {
 	return NewNativeIngestExternalFileOptions(C.rocksdb_ingestexternalfileoptions_create())
 }
 
-// NewNativeFlushOptions creates a FlushOptions object.
+// NewNativeFlushOptions creates a IngestExternalFileOptions object.
 func NewNativeIngestExternalFileOptions(c *C.rocksdb_ingestexternalfileoptions_t) *IngestExternalFileOptions {
 	return &IngestExternalFileOptions{c: c}
 }
