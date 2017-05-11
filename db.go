@@ -617,7 +617,7 @@ func (db *DB) IngestExternalFile(filePaths []string, opts *IngestExternalFileOpt
 	return nil
 }
 
-// IngestExternalFile loads a list of external SST files for a column family.
+// IngestExternalFileCF loads a list of external SST files for a column family.
 func (db *DB) IngestExternalFileCF(handle *ColumnFamilyHandle, filePaths []string, opts *IngestExternalFileOptions) error {
 	cFilePaths := make([]*C.char, len(filePaths))
 	for i, s := range filePaths {

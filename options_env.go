@@ -3,16 +3,17 @@ package gorocksdb
 // #include "rocksdb/c.h"
 import "C"
 
+// EnvOptions represents options for env.
 type EnvOptions struct {
 	c *C.rocksdb_envoptions_t
 }
 
-// NewDefaultIngestExternalFileOptions creates a default IngestExternalFileOptions object.
+// NewDefaultEnvOptions creates a default EnvOptions object.
 func NewDefaultEnvOptions() *EnvOptions {
 	return NewNativeEnvOptions(C.rocksdb_envoptions_create())
 }
 
-// NewNativeFlushOptions creates a FlushOptions object.
+// NewNativeEnvOptions creates a EnvOptions object.
 func NewNativeEnvOptions(c *C.rocksdb_envoptions_t) *EnvOptions {
 	return &EnvOptions{c: c}
 }

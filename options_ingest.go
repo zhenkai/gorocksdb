@@ -3,6 +3,7 @@ package gorocksdb
 // #include "rocksdb/c.h"
 import "C"
 
+// IngestExternalFileOptions represents available options when ingesting external files.
 type IngestExternalFileOptions struct {
 	c *C.rocksdb_ingestexternalfileoptions_t
 }
@@ -12,7 +13,7 @@ func NewDefaultIngestExternalFileOptions() *IngestExternalFileOptions {
 	return NewNativeIngestExternalFileOptions(C.rocksdb_ingestexternalfileoptions_create())
 }
 
-// NewNativeFlushOptions creates a IngestExternalFileOptions object.
+// NewNativeIngestExternalFileOptions creates a IngestExternalFileOptions object.
 func NewNativeIngestExternalFileOptions(c *C.rocksdb_ingestexternalfileoptions_t) *IngestExternalFileOptions {
 	return &IngestExternalFileOptions{c: c}
 }
